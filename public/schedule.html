@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Расписание занятий — PRO GYM</title>
+  <meta name="description" content="Расписание групповых программ в залах PRO GYM. Актуальные слоты и запись — на ресепшене и по телефону." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="header__inner container">
+      <a class="logo" href="index.html" aria-label="PRO GYM — на главную">
+        <span class="logo__mark">PRO</span><span class="logo__text">GYM</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav">
+        <div class="nav__center">
+          <ul class="nav__list">
+            <li><a href="about.html">О клубе</a></li>
+            <li><a href="programs.html">Направления</a></li>
+            <li><a href="schedule.html" aria-current="page">Расписание</a></li>
+            <li><a href="tariffs.html">Тарифы</a></li>
+            <li><a href="trainers.html">Тренеры</a></li>
+            <li><a href="zones.html">Зоны</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="nav__end">
+          <div id="auth-slot" class="nav__auth"></div>
+          <a class="nav__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero--page">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__content container">
+        <p class="hero__tag">Групповые программы</p>
+        <h1 class="hero__title">Расписание <span class="hero__title-accent">занятий</span></h1>
+        <p class="hero__lead">Сетка на неделю — ориентир по залам и времени. Точные слоты, замены тренеров и свободные места всегда уточняйте у администраторов.</p>
+        <p class="schedule-month">Апрель 2026 · неделя 13–19</p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="schedule-intro">
+          <p>Ниже — две сетки: <strong>зал 1</strong> и <strong>зал 2</strong>. Пустые ячейки — окно без групповой программы или время под другие форматы. На мобильном таблицу можно листать горизонтально.</p>
+        </div>
+
+        <div class="schedule-hall" aria-labelledby="hall-1">
+          <h2 id="hall-1" class="schedule-hall__title">Зал 1</h2>
+          <div class="schedule-scroll" tabindex="0">
+            <div class="schedule-grid">
+              <div class="schedule-dayhead">понедельник<span class="schedule-dayhead__date">13.04</span></div>
+              <div class="schedule-dayhead">вторник<span class="schedule-dayhead__date">14.04</span></div>
+              <div class="schedule-dayhead">среда<span class="schedule-dayhead__date">15.04</span></div>
+              <div class="schedule-dayhead">четверг<span class="schedule-dayhead__date">16.04</span></div>
+              <div class="schedule-dayhead">пятница<span class="schedule-dayhead__date">17.04</span></div>
+              <div class="schedule-dayhead">суббота<span class="schedule-dayhead__date">18.04</span></div>
+              <div class="schedule-dayhead">воскресенье<span class="schedule-dayhead__date">19.04</span></div>
+
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">10:00 – 11:00</span>
+                <span class="schedule-cell__class">PUMP</span>
+                <span class="schedule-cell__coach">Юлия</span>
+              </div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">10:00 – 11:00</span>
+                <span class="schedule-cell__class">STRETCHING</span>
+                <span class="schedule-cell__coach">Ольга</span>
+              </div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">11:00 – 12:00</span>
+                <span class="schedule-cell__class">CORE</span>
+                <span class="schedule-cell__coach">Юлия</span>
+              </div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--outline">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">12:00 – 13:00</span>
+                <span class="schedule-cell__class">Чирлидинг (дети)</span>
+                <span class="schedule-cell__coach">Анна</span>
+              </div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">10:30 – 11:30</span>
+                <span class="schedule-cell__class">HIIT</span>
+                <span class="schedule-cell__coach">Анастасия</span>
+              </div>
+
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">14:00 – 15:00</span>
+                <span class="schedule-cell__class">PILATES</span>
+                <span class="schedule-cell__coach">Ольга</span>
+              </div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">15:00 – 16:00</span>
+                <span class="schedule-cell__class">POWER BODY</span>
+                <span class="schedule-cell__coach">Ксения</span>
+              </div>
+              <div class="schedule-cell schedule-cell--outline">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">14:00 – 16:00</span>
+                <span class="schedule-cell__class">Аренда зала</span>
+                <span class="schedule-cell__coach">—</span>
+              </div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">13:00 – 14:00</span>
+                <span class="schedule-cell__class">Здоровая спина</span>
+                <span class="schedule-cell__coach">Наталья</span>
+              </div>
+
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">18:00 – 19:00</span>
+                <span class="schedule-cell__class">BODY PUMP</span>
+                <span class="schedule-cell__coach">Юлия</span>
+              </div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">19:00 – 20:00</span>
+                <span class="schedule-cell__class">CORE</span>
+                <span class="schedule-cell__coach">Юлия</span>
+              </div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">18:30 – 19:30</span>
+                <span class="schedule-cell__class">TABATA</span>
+                <span class="schedule-cell__coach">Валерия</span>
+              </div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">19:00 – 20:00</span>
+                <span class="schedule-cell__class">STEP &amp; POWER</span>
+                <span class="schedule-cell__coach">Анастасия</span>
+              </div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">17:00 – 18:00</span>
+                <span class="schedule-cell__class">FUNCTIONAL</span>
+                <span class="schedule-cell__coach">Ксения</span>
+              </div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">18:00 – 19:00</span>
+                <span class="schedule-cell__class">HOT IRON</span>
+                <span class="schedule-cell__coach">Ольга</span>
+              </div>
+
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">20:00 – 21:00</span>
+                <span class="schedule-cell__class">STRETCHING</span>
+                <span class="schedule-cell__coach">Ольга</span>
+              </div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">20:00 – 21:00</span>
+                <span class="schedule-cell__class">ЙОГА</span>
+                <span class="schedule-cell__coach">Анна</span>
+              </div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">11:00 – 12:00</span>
+                <span class="schedule-cell__class">ZUMBA</span>
+                <span class="schedule-cell__coach">Валерия</span>
+              </div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 1</span>
+                <span class="schedule-cell__time">12:00 – 13:00</span>
+                <span class="schedule-cell__class">PILATES</span>
+                <span class="schedule-cell__coach">Ольга</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="schedule-hall" aria-labelledby="hall-2">
+          <h2 id="hall-2" class="schedule-hall__title">Зал 2</h2>
+          <div class="schedule-scroll" tabindex="0">
+            <div class="schedule-grid">
+              <div class="schedule-dayhead">понедельник<span class="schedule-dayhead__date">13.04</span></div>
+              <div class="schedule-dayhead">вторник<span class="schedule-dayhead__date">14.04</span></div>
+              <div class="schedule-dayhead">среда<span class="schedule-dayhead__date">15.04</span></div>
+              <div class="schedule-dayhead">четверг<span class="schedule-dayhead__date">16.04</span></div>
+              <div class="schedule-dayhead">пятница<span class="schedule-dayhead__date">17.04</span></div>
+              <div class="schedule-dayhead">суббота<span class="schedule-dayhead__date">18.04</span></div>
+              <div class="schedule-dayhead">воскресенье<span class="schedule-dayhead__date">19.04</span></div>
+
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">09:00 – 10:00</span>
+                <span class="schedule-cell__class">CALLANETICA</span>
+                <span class="schedule-cell__coach">Наталья</span>
+              </div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">09:30 – 10:30</span>
+                <span class="schedule-cell__class">ФИТБОЛ</span>
+                <span class="schedule-cell__coach">Наталья</span>
+              </div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">10:00 – 11:00</span>
+                <span class="schedule-cell__class">LATINA SOLO</span>
+                <span class="schedule-cell__coach">Анна</span>
+              </div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">10:00 – 11:00</span>
+                <span class="schedule-cell__class">DANCEHALL</span>
+                <span class="schedule-cell__coach">Валерия</span>
+              </div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">11:00 – 12:00</span>
+                <span class="schedule-cell__class">ЙОГА</span>
+                <span class="schedule-cell__coach">Анна</span>
+              </div>
+
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">12:00 – 13:00</span>
+                <span class="schedule-cell__class">СТРЕТЧИНГ</span>
+                <span class="schedule-cell__coach">Ольга</span>
+              </div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">13:00 – 14:00</span>
+                <span class="schedule-cell__class">ЗДОРОВАЯ СПИНА</span>
+                <span class="schedule-cell__coach">Наталья</span>
+              </div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">14:00 – 15:00</span>
+                <span class="schedule-cell__class">PILATES</span>
+                <span class="schedule-cell__coach">Ольга</span>
+              </div>
+              <div class="schedule-cell schedule-cell--outline">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">15:00 – 17:00</span>
+                <span class="schedule-cell__class">Аренда</span>
+                <span class="schedule-cell__coach">—</span>
+              </div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">18:00 – 19:00</span>
+                <span class="schedule-cell__class">БОКС</span>
+                <span class="schedule-cell__coach">Андрей</span>
+              </div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">18:00 – 19:00</span>
+                <span class="schedule-cell__class">БОКС</span>
+                <span class="schedule-cell__coach">Андрей</span>
+              </div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">19:00 – 20:00</span>
+                <span class="schedule-cell__class">БОКС</span>
+                <span class="schedule-cell__coach">Андрей</span>
+              </div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">19:30 – 20:30</span>
+                <span class="schedule-cell__class">ТАЙ-БО</span>
+                <span class="schedule-cell__coach">Ксения</span>
+              </div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">18:00 – 19:00</span>
+                <span class="schedule-cell__class">LATINA</span>
+                <span class="schedule-cell__coach">Анна</span>
+              </div>
+
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">20:00 – 21:00</span>
+                <span class="schedule-cell__class">СТРЕТЧИНГ</span>
+                <span class="schedule-cell__coach">Ольга</span>
+              </div>
+              <div class="schedule-cell schedule-cell--empty"></div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">20:00 – 21:00</span>
+                <span class="schedule-cell__class">МОБИЛИТИ</span>
+                <span class="schedule-cell__coach">Наталья</span>
+              </div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">11:00 – 12:00</span>
+                <span class="schedule-cell__class">ZUMBA</span>
+                <span class="schedule-cell__coach">Валерия</span>
+              </div>
+              <div class="schedule-cell schedule-cell--accent">
+                <span class="schedule-cell__hall">Зал 2</span>
+                <span class="schedule-cell__time">12:00 – 13:00</span>
+                <span class="schedule-cell__class">ЙОГА</span>
+                <span class="schedule-cell__coach">Анна</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="schedule-footnote">
+          <strong>Важно:</strong> это демонстрационная сетка для сайта. Живое расписание может отличаться по сезону, праздникам и загрузке залов. Запись и перенос — на ресепшене PRO GYM или по телефону <a href="tel:+79939167575">+7 (993) 916-75-75</a>.
+        </p>
+
+        <div class="prose-cta">
+          <a class="btn btn--primary btn--lg" href="index.html#lead">Записаться на визит</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="logo logo--footer" href="index.html"><span class="logo__mark">PRO</span><span class="logo__text">GYM</span></a>
+        <p>© <span id="year"></span> Фитнес-клуб PRO GYM</p>
+      </div>
+      <div class="footer__links">
+        <a href="programs.html">Направления</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+      <a class="footer__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth-nav.js" defer></script>
+</body>
+</html>

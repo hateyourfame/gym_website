@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>О клубе — PRO GYM</title>
+  <meta name="description" content="Философия клуба PRO GYM: бодибилдинг, современный фитнес, SPA, оборудование и сервис в ТЦ Час Пик." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="header__inner container">
+      <a class="logo" href="index.html" aria-label="PRO GYM — на главную">
+        <span class="logo__mark">PRO</span><span class="logo__text">GYM</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav">
+        <div class="nav__center">
+          <ul class="nav__list">
+            <li><a href="about.html" aria-current="page">О клубе</a></li>
+            <li><a href="programs.html">Направления</a></li>
+            <li><a href="schedule.html">Расписание</a></li>
+            <li><a href="tariffs.html">Тарифы</a></li>
+            <li><a href="trainers.html">Тренеры</a></li>
+            <li><a href="zones.html">Зоны</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="nav__end">
+          <div id="auth-slot" class="nav__auth"></div>
+          <a class="nav__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero--page">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__content container">
+        <p class="hero__tag">О клубе</p>
+        <h1 class="hero__title">Традиции силы и современный фитнес без <span class="hero__title-accent">компромиссов</span></h1>
+        <p class="hero__lead">PRO GYM в ТЦ «Час Пик» — это место, где уважают работу над телом: от «старой школы» бодибилдинга до актуальных групповых форматов и бокса.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container prose">
+        <article class="content-article">
+          <section class="prose-section" aria-labelledby="about-philosophy">
+            <h2 id="about-philosophy">Философия пространства</h2>
+            <p>Мы сознательно держим баланс между «рабочей» атмосферой зала и комфортом зоны отдыха. Здесь не нужно казаться — нужно тренироваться. После нагрузки вас ждёт раздельная SPA-зона с финскими саунами: восстановление — часть прогресса, а не опция.</p>
+          </section>
+
+          <section class="prose-section" aria-labelledby="about-equipment">
+            <h2 id="about-equipment">Оборудование и зоны</h2>
+            <p>Все тренировочные площадки оснащены современным инвентарём ведущих производителей спортиндустрии. В одном клубе собраны:</p>
+            <ul>
+              <li>зона свободных весов и силовых тренажёров на все группы мышц;</li>
+              <li>площадка пауэрлифтинга и зона для кроссфит-элементов и функционала;</li>
+              <li>кардиоряд для разогрева и жиросжигающих сессий;</li>
+              <li>боксёрский ринг и зона бокса;</li>
+              <li>два зала для групповых программ — аэробика, танцы, йога и другое;</li>
+              <li>две финские сауны.</li>
+            </ul>
+          </section>
+
+          <section class="prose-section" aria-labelledby="about-audience">
+            <h2 id="about-audience">Для кого мы</h2>
+            <p>Для тех, кто хочет прийти в форму, набрать силу, сбросить вес, научиться боксу или танцам — и для тех, кому важна здоровая спина и мягкие форматы вроде callanetica. Тренеры и врач помогают подобрать нагрузку под ваше состояние и цели.</p>
+          </section>
+
+          <section class="prose-section" aria-labelledby="about-first">
+            <h2 id="about-first">Первый визит</h2>
+            <p>Разовое посещение — лучший способ понять атмосферу клуба: вы проходите по залам, можете попробовать групповую программу и сауну. Студентам и школьникам доступны льготные условия — уточняйте на ресепшене.</p>
+          </section>
+
+          <div class="prose-cta">
+            <a class="btn btn--primary btn--lg" href="index.html#lead">Записаться на визит</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="logo logo--footer" href="index.html"><span class="logo__mark">PRO</span><span class="logo__text">GYM</span></a>
+        <p>© <span id="year"></span> Фитнес-клуб PRO GYM</p>
+      </div>
+      <div class="footer__links">
+        <a href="index.html">Главная</a>
+        <a href="schedule.html">Расписание</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+      <a class="footer__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth-nav.js" defer></script>
+</body>
+</html>

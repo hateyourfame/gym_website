@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Личный кабинет — PRO GYM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="header__inner container">
+      <a class="logo" href="index.html" aria-label="PRO GYM — на главную">
+        <span class="logo__mark">PRO</span><span class="logo__text">GYM</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav">
+        <div class="nav__center">
+          <ul class="nav__list">
+            <li><a href="about.html">О клубе</a></li>
+            <li><a href="programs.html">Направления</a></li>
+            <li><a href="schedule.html">Расписание</a></li>
+            <li><a href="tariffs.html">Тарифы</a></li>
+            <li><a href="trainers.html">Тренеры</a></li>
+            <li><a href="zones.html">Зоны</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="nav__end">
+          <div id="auth-slot" class="nav__auth"></div>
+          <a class="nav__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section container">
+    <div id="dash-guest" class="auth-page" style="display: none;">
+      <h1 class="section-title">Нужен вход</h1>
+      <p class="section-lead" style="text-align: center;"><a href="login.html" class="link-more">Войти</a> или <a href="register.html" class="link-more">зарегистрироваться</a></p>
+    </div>
+    <div id="dash-content" style="display: none;">
+      <div class="account-hero">
+        <p class="hero__tag">Личный кабинет</p>
+        <h1 class="section-title" id="dash-welcome">Здравствуйте</h1>
+        <p class="section-lead" id="dash-email"></p>
+      </div>
+      <div class="account-cards">
+        <div class="account-card">
+          <p class="account-card__label">Абонемент действует до</p>
+          <p class="account-card__value" id="dash-end">—</p>
+          <p class="account-card__sub" id="dash-days"></p>
+          <div id="dash-badge"></div>
+          <div class="progress-bar" id="dash-progress-wrap" style="display: none;">
+            <div class="progress-bar__fill" id="dash-progress" style="width: 0%;"></div>
+          </div>
+        </div>
+        <div class="account-card">
+          <p class="account-card__label">Тариф</p>
+          <p class="account-card__value" style="font-size: 1.25rem;" id="dash-plan">—</p>
+          <p class="account-card__sub">Персональные / включённые тренировки</p>
+        </div>
+        <div class="account-card">
+          <p class="account-card__label">Осталось тренировок</p>
+          <p class="account-card__value" id="dash-trainings">—</p>
+          <p class="account-card__sub" id="dash-trainings-hint"></p>
+        </div>
+      </div>
+      <p style="margin-top: 2rem;"><a href="contacts.html" class="btn btn--ghost">Связаться с клубом</a></p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="logo logo--footer" href="index.html"><span class="logo__mark">PRO</span><span class="logo__text">GYM</span></a>
+        <p>© <span id="year"></span> Фитнес-клуб PRO GYM</p>
+      </div>
+      <a class="footer__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth-nav.js" defer></script>
+  <script>
+    function fmtRu(iso) {
+      if (!iso) return "—";
+      var p = iso.split("-");
+      if (p.length !== 3) return iso;
+      return p[2] + "." + p[1] + "." + p[0];
+    }
+
+    document.addEventListener("DOMContentLoaded", async function () {
+      var r = await fetch("/api/me", { credentials: "same-origin" });
+      var data = await r.json();
+      var guest = document.getElementById("dash-guest");
+      var content = document.getElementById("dash-content");
+      if (!data.user) {
+        guest.style.display = "block";
+        return;
+      }
+      if (data.user.role === "admin") {
+        window.location.href = "admin.html";
+        return;
+      }
+      guest.style.display = "none";
+      content.style.display = "block";
+      var u = data.user;
+      document.getElementById("dash-welcome").textContent = "Здравствуйте, " + u.firstName + "!";
+      document.getElementById("dash-email").textContent = u.email;
+
+      var m = u.membership;
+      if (!m) {
+        document.getElementById("dash-end").textContent = "Нет данных";
+        document.getElementById("dash-trainings").textContent = "—";
+        return;
+      }
+
+      document.getElementById("dash-plan").textContent = m.planName || "Абонемент";
+      document.getElementById("dash-end").textContent = fmtRu(m.subscriptionEnd);
+
+      var end = new Date(m.subscriptionEnd + "T23:59:59");
+      var now = new Date();
+      var days = Math.ceil((end - now) / 86400000);
+      var daysEl = document.getElementById("dash-days");
+      var badge = document.getElementById("dash-badge");
+      var progWrap = document.getElementById("dash-progress-wrap");
+      var progFill = document.getElementById("dash-progress");
+
+      if (days < 0) {
+        daysEl.textContent = "Срок абонемента истёк";
+        badge.innerHTML = '<span class="badge badge--bad">Истёк</span>';
+        progWrap.style.display = "none";
+      } else if (days === 0) {
+        daysEl.textContent = "Истекает сегодня";
+        badge.innerHTML = '<span class="badge badge--warn">Последний день</span>';
+        progWrap.style.display = "block";
+        progFill.style.width = "100%";
+      } else {
+        daysEl.textContent = "Осталось дней: " + days;
+        if (days <= 7) {
+          badge.innerHTML = '<span class="badge badge--warn">Скоро окончание</span>';
+        } else {
+          badge.innerHTML = '<span class="badge badge--ok">Активен</span>';
+        }
+        progWrap.style.display = "block";
+        var total = 30;
+        var pct = Math.min(100, Math.max(5, (days / total) * 100));
+        progFill.style.width = pct + "%";
+      }
+
+      var tr = m.trainingsRemaining;
+      document.getElementById("dash-trainings").textContent = String(tr);
+      var hint = document.getElementById("dash-trainings-hint");
+      if (tr === 0) {
+        hint.textContent = "Дополнительные тренировки — на ресепшене";
+      } else {
+        hint.textContent = "Списание происходит при посещении персональной тренировки (по правилам клуба)";
+      }
+    });
+  </script>
+</body>
+</html>

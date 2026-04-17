@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Клубные карты и тарифы — PRO GYM</title>
+  <meta name="description" content="Абонементы PRO GYM: разовое посещение, 1–12 месяцев, студенческая карта, выходного дня. Гостевые визиты и персональные тренировки в пакетах." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="header__inner container">
+      <a class="logo" href="index.html" aria-label="PRO GYM — на главную">
+        <span class="logo__mark">PRO</span><span class="logo__text">GYM</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav">
+        <div class="nav__center">
+          <ul class="nav__list">
+            <li><a href="about.html">О клубе</a></li>
+            <li><a href="programs.html">Направления</a></li>
+            <li><a href="schedule.html">Расписание</a></li>
+            <li><a href="tariffs.html" aria-current="page">Тарифы</a></li>
+            <li><a href="trainers.html">Тренеры</a></li>
+            <li><a href="zones.html">Зоны</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="nav__end">
+          <div id="auth-slot" class="nav__auth"></div>
+          <a class="nav__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero--page">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__content container">
+        <p class="hero__tag">Клубные карты</p>
+        <h1 class="hero__title">Выберите срок — <span class="hero__title-accent">получите бонусы</span></h1>
+        <p class="hero__lead">Чем дольше абонемент, тем больше гостевых визитов и персональных тренировок в комплекте. Точные цены и акции уточняйте у менеджеров — они зависят от сезона и спецпредложений.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="tariffs__grid">
+          <article class="tariff-card">
+            <h3>Разовое посещение</h3>
+            <p class="tariff-card__desc">Полный доступ ко всем зонам клуба в день визита, групповые программы по расписанию, финские сауны, сейфовая ячейка.</p>
+            <p class="tariff-detail">Идеально, чтобы «пощупать» атмосферу и инвентарь перед абонементом.</p>
+            <a class="btn btn--outline btn--block" href="index.html#lead">Оформить</a>
+          </article>
+          <article class="tariff-card">
+            <h3>1 месяц</h3>
+            <p class="tariff-card__desc">Все зоны, группы, сауны, ячейка + 2 гостевых визита для друзей или семьи.</p>
+            <p class="tariff-detail">Гостевой — по правилам клуба, детали на ресепшене.</p>
+            <a class="btn btn--outline btn--block" href="index.html#lead">Оформить</a>
+          </article>
+          <article class="tariff-card tariff-card--featured">
+            <span class="tariff-card__badge">Популярно</span>
+            <h3>3 месяца</h3>
+            <p class="tariff-card__desc">Полный пакет услуг + 1 персональная тренировка + 3 гостевых.</p>
+            <p class="tariff-detail">Персоналка помогает быстрее освоить зал и технику.</p>
+            <a class="btn btn--primary btn--block" href="index.html#lead">Оформить</a>
+          </article>
+          <article class="tariff-card">
+            <h3>6 месяцев</h3>
+            <p class="tariff-card__desc">Всё включено + 1 персональная + 5 гостевых визитов.</p>
+            <p class="tariff-detail">Оптимальный горизонт для устойчивой привычки к тренировкам.</p>
+            <a class="btn btn--outline btn--block" href="index.html#lead">Оформить</a>
+          </article>
+          <article class="tariff-card">
+            <h3>12 месяцев</h3>
+            <p class="tariff-card__desc">Максимум включённых опций: 2 персональные тренировки и 6 гостевых.</p>
+            <p class="tariff-detail">Для тех, кто точно взял курс на долгую дистанцию.</p>
+            <a class="btn btn--outline btn--block" href="index.html#lead">Оформить</a>
+          </article>
+          <article class="tariff-card">
+            <h3>Годовая карта студента / школьника</h3>
+            <p class="tariff-card__desc">Все зоны тренинга, сейфовая ячейка, 2 персональные, 6 гостевых.</p>
+            <p class="tariff-detail">Нужен документ, подтверждающий статус — список уточняйте в клубе.</p>
+            <a class="btn btn--outline btn--block" href="index.html#lead">Оформить</a>
+          </article>
+          <article class="tariff-card">
+            <h3>Карта выходного дня</h3>
+            <p class="tariff-card__desc">Суббота и воскресенье: залы, сауны, ячейка. Групповые программы не входят в тариф.</p>
+            <p class="tariff-detail">Подходит, если в будни вы в другом районе или на работе.</p>
+            <a class="btn btn--outline btn--block" href="index.html#lead">Оформить</a>
+          </article>
+        </div>
+
+        <div class="about__extras" style="margin-top: 3rem;">
+          <h3>Как оплатить и что уточнить</h3>
+          <p>Способы оплаты и рассрочка (если доступна) менеджеры подскажут по телефону. Перед покупкой спросите про текущие акции, корпоративные программы и условия заморозки карты — они могут отличаться от стандартных правил фитнес-индустрии.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="logo logo--footer" href="index.html"><span class="logo__mark">PRO</span><span class="logo__text">GYM</span></a>
+        <p>© <span id="year"></span> Фитнес-клуб PRO GYM</p>
+      </div>
+      <div class="footer__links">
+        <a href="index.html">Главная</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+      <a class="footer__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth-nav.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Зоны клуба — PRO GYM</title>
+  <meta name="description" content="Зоны PRO GYM: силовой зал, бокс, ресепшен, групповые залы, сауны. Оборудование и форматы тренировок." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="header__inner container">
+      <a class="logo" href="index.html" aria-label="PRO GYM — на главную">
+        <span class="logo__mark">PRO</span><span class="logo__text">GYM</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav">
+        <div class="nav__center">
+          <ul class="nav__list">
+            <li><a href="about.html">О клубе</a></li>
+            <li><a href="programs.html">Направления</a></li>
+            <li><a href="schedule.html">Расписание</a></li>
+            <li><a href="tariffs.html">Тарифы</a></li>
+            <li><a href="trainers.html">Тренеры</a></li>
+            <li><a href="zones.html" aria-current="page">Зоны</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="nav__end">
+          <div id="auth-slot" class="nav__auth"></div>
+          <a class="nav__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero--page">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__content container">
+        <p class="hero__tag">Зоны клуба</p>
+        <h1 class="hero__title">Один клуб — <span class="hero__title-accent">несколько миров тренинга</span></h1>
+        <p class="hero__lead">Каждая площадка заточена под свой тип нагрузки: от тяжёлых дисков до танцевального паркета. Нажмите на фото зоны — откроется галерея, как в полноэкранном просмотре.</p>
+      </div>
+    </section>
+
+    <section class="section zones-page">
+      <div class="container">
+        <div class="zones__grid">
+          <figure class="zone-tile">
+            <button
+              type="button"
+              class="zone-tile__open"
+              data-zone-key="strength"
+              aria-label="Открыть галерею: силовая зона"
+            >
+              <div class="img-placeholder img-placeholder--wide" data-label="Фото: силовой зал / рамы / диски"><span>Силовая</span></div>
+              <span class="zone-tile__open-hint">Смотреть фото</span>
+            </button>
+            <figcaption>
+              <span class="zone-tile__title">Бодибилдинг, пауэрлифтинг, кроссфит-элементы</span>
+              <span class="zone-tile__desc">Рамы, скамьи, гантели, штанги, зоны для тяги и приседов. Здесь же удобно строить силовые циклы и работать в многосуставных движениях.</span>
+            </figcaption>
+          </figure>
+          <figure class="zone-tile">
+            <button
+              type="button"
+              class="zone-tile__open"
+              data-zone-key="boxing"
+              aria-label="Открыть галерею: бокс"
+            >
+              <div class="img-placeholder img-placeholder--wide" data-label="Фото: ринг и мешки"><span>Бокс</span></div>
+              <span class="zone-tile__open-hint">Смотреть фото</span>
+            </button>
+            <figcaption>
+              <span class="zone-tile__title">Боксёрский ринг и зона отработки</span>
+              <span class="zone-tile__desc">Работа на лапах, мешках, в парах. Развитие координации и выносливости в динамичном формате.</span>
+            </figcaption>
+          </figure>
+          <figure class="zone-tile">
+            <button
+              type="button"
+              class="zone-tile__open"
+              data-zone-key="reception"
+              aria-label="Открыть галерею: ресепшен"
+            >
+              <div class="img-placeholder img-placeholder--wide" data-label="Фото: ресепшен"><span>Ресепшен</span></div>
+              <span class="zone-tile__open-hint">Смотреть фото</span>
+            </button>
+            <figcaption>
+              <span class="zone-tile__title">Ресепшен</span>
+              <span class="zone-tile__desc">Встреча гостей, оформление карт и пропусков, консультации по услугам и расписанию. Точка входа в атмосферу клуба.</span>
+            </figcaption>
+          </figure>
+          <figure class="zone-tile">
+            <button
+              type="button"
+              class="zone-tile__open"
+              data-zone-key="group_halls"
+              aria-label="Открыть галерею: групповые залы"
+            >
+              <div class="img-placeholder img-placeholder--wide" data-label="Фото: зал аэробики / степ / зеркала"><span>Группы</span></div>
+              <span class="zone-tile__open-hint">Смотреть фото</span>
+            </button>
+            <figcaption>
+              <span class="zone-tile__title">Два зала групповых программ</span>
+              <span class="zone-tile__desc">Аэробика, степ, танцы, йога и другие направления — вместительные залы с покрытием и зеркалами.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="logo logo--footer" href="index.html"><span class="logo__mark">PRO</span><span class="logo__text">GYM</span></a>
+        <p>© <span id="year"></span> Фитнес-клуб PRO GYM</p>
+      </div>
+      <div class="footer__links">
+        <a href="index.html">Главная</a>
+        <a href="contacts.html">Контакты</a>
+      </div>
+      <a class="footer__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/zones-page.js" defer></script>
+  <script src="js/zones-gallery.js" defer></script>
+  <script src="js/auth-nav.js" defer></script>
+</body>
+</html>

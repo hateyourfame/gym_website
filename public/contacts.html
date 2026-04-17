@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Контакты и проезд — PRO GYM</title>
+  <meta name="description" content="Адрес PRO GYM в ТЦ Час Пик, МКАД 87 км. Телефон, WhatsApp, автобусы от метро, парковка." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="header__inner container">
+      <a class="logo" href="index.html" aria-label="PRO GYM — на главную">
+        <span class="logo__mark">PRO</span><span class="logo__text">GYM</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav">
+        <div class="nav__center">
+          <ul class="nav__list">
+            <li><a href="about.html">О клубе</a></li>
+            <li><a href="programs.html">Направления</a></li>
+            <li><a href="schedule.html">Расписание</a></li>
+            <li><a href="tariffs.html">Тарифы</a></li>
+            <li><a href="trainers.html">Тренеры</a></li>
+            <li><a href="zones.html">Зоны</a></li>
+            <li><a href="contacts.html" aria-current="page">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="nav__end">
+          <div id="auth-slot" class="nav__auth"></div>
+          <a class="nav__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero hero--page">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__content container">
+        <p class="hero__tag">Контакты</p>
+        <h1 class="hero__title">Приезжайте в <span class="hero__title-accent">ТЦ «Час Пик»</span></h1>
+        <p class="hero__lead">Фитнес-клуб расположен на 87-м километре МКАД с внутренней стороны. Добраться можно на машине и на общественном транспорте от метро Бибирево, Алтуфьево и Медведково.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2 contacts__grid">
+        <div>
+          <h2 class="section-title">Адрес и связь</h2>
+          <p class="contacts__address">
+            Москва, 87-й км МКАД (внутренняя сторона), 8<br />
+            ТЦ «Час Пик», фитнес-клуб PRO GYM
+          </p>
+          <p class="contacts__phone">
+            <a href="tel:+79939167575">+7 (993) 916-75-75</a>
+            <span class="contacts__hint">
+              <a href="https://wa.me/79939167575" target="_blank" rel="noopener noreferrer">Написать в WhatsApp</a>
+            </span>
+          </p>
+
+          <div class="contacts__how">
+            <h3>На машине</h3>
+            <p>Со стороны МКАД — заезд на парковку ТЦ «Час Пик». Со стороны города — с улицы Корнейчука. Для гостей клуба первые три часа парковки по правилам центра; оформление пропуска — на ресепшене PRO GYM. Далее действуют тарифы платной парковки ТРЦ.</p>
+            <h3>На автобусе</h3>
+            <p><strong>От м. Бибирево:</strong> маршруты 290, 282.</p>
+            <p><strong>От м. Алтуфьево:</strong> 525, 815, 1291к (ЖК «Датский квартал»), остановка Подушкино.</p>
+            <p><strong>От м. Медведково:</strong> 606.</p>
+            <p>Эти и соседние маршруты также обслуживают районы Бибирево, Лианозово и Алтуфьевский — уточняйте удобную остановку в навигаторе.</p>
+          </div>
+        </div>
+        <div class="contacts__map-wrap">
+          <div class="img-placeholder img-placeholder--map" data-label="Вставьте iframe карты (Яндекс / Google)">
+            <span>Карта</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark lead" id="lead">
+      <div class="container lead__grid">
+        <div class="lead__intro">
+          <h2 class="section-title">Напишите нам</h2>
+          <p class="section-lead section-lead--muted">Оставьте заявку — перезвоним и ответим на вопросы по картам, расписанию и услугам.</p>
+        </div>
+        <form class="lead-form" id="lead-form" action="#" method="post">
+          <label class="field">
+            <span class="field__label">Имя</span>
+            <input type="text" name="name" required autocomplete="name" placeholder="Как к вам обращаться" />
+          </label>
+          <label class="field">
+            <span class="field__label">Телефон</span>
+            <input type="tel" name="phone" required autocomplete="tel" placeholder="+7" />
+          </label>
+          <label class="field field--full">
+            <span class="field__label">Комментарий</span>
+            <textarea name="message" rows="3" placeholder="Удобное время, вопрос по тарифу…"></textarea>
+          </label>
+          <label class="checkbox field--full">
+            <input type="checkbox" name="consent" required />
+            <span>Согласен с <a href="#" class="link-inline">политикой персональных данных</a></span>
+          </label>
+          <button class="btn btn--primary btn--lg field--full" type="submit">Отправить</button>
+          <p class="lead-form__note" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="logo logo--footer" href="index.html"><span class="logo__mark">PRO</span><span class="logo__text">GYM</span></a>
+        <p>© <span id="year"></span> Фитнес-клуб PRO GYM</p>
+      </div>
+      <div class="footer__links">
+        <a href="index.html">Главная</a>
+        <a href="tariffs.html">Тарифы</a>
+      </div>
+      <a class="footer__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth-nav.js" defer></script>
+</body>
+</html>

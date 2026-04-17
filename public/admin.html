@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Админ — PRO GYM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="header__inner container">
+      <a class="logo" href="index.html" aria-label="PRO GYM — на главную">
+        <span class="logo__mark">PRO</span><span class="logo__text">GYM</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav">
+        <div class="nav__center">
+          <ul class="nav__list">
+            <li><a href="about.html">О клубе</a></li>
+            <li><a href="programs.html">Направления</a></li>
+            <li><a href="schedule.html">Расписание</a></li>
+            <li><a href="tariffs.html">Тарифы</a></li>
+            <li><a href="trainers.html">Тренеры</a></li>
+            <li><a href="zones.html">Зоны</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="nav__end">
+          <div id="auth-slot" class="nav__auth"></div>
+          <a class="nav__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section container">
+    <div id="adm-deny" style="display: none;">
+      <h1 class="section-title">Доступ запрещён</h1>
+      <p class="section-lead"><a href="login.html" class="link-more">Войти как администратор</a></p>
+    </div>
+    <div id="adm-app" style="display: none;">
+      <p class="hero__tag">Администрирование</p>
+      <h1 class="section-title">Панель администратора</h1>
+      <p class="section-lead" style="margin-bottom: 2rem;">Управляйте клиентами, тренерами и галереей зон клуба.</p>
+
+      <div class="admin-layout">
+        <div class="admin-search">
+          <label class="field">
+            <span class="field__label">Имя или фамилия</span>
+            <input type="search" id="adm-q" placeholder="Например: Иванов" autocomplete="off" />
+          </label>
+          <button type="button" class="btn btn--primary" id="adm-search-btn">Найти</button>
+          <ul class="admin-results" id="adm-results"></ul>
+          <p class="form-msg" id="adm-search-msg"></p>
+        </div>
+        <div class="admin-edit" id="adm-edit" style="opacity: 0.5; pointer-events: none;">
+          <h3 id="adm-edit-title">Клиент не выбран</h3>
+          <p class="account-card__sub" id="adm-edit-meta"></p>
+          <form id="adm-form">
+            <input type="hidden" id="adm-user-id" />
+            <label class="field field--full">
+              <span class="field__label">Название тарифа</span>
+              <input type="text" id="adm-plan" />
+            </label>
+            <label class="field field--full">
+              <span class="field__label">Дата окончания (ГГГГ-ММ-ДД)</span>
+              <input type="date" id="adm-end" required />
+            </label>
+            <label class="field field--full">
+              <span class="field__label">Осталось тренировок</span>
+              <input type="number" id="adm-tr" min="0" step="1" required />
+            </label>
+            <button type="submit" class="btn btn--primary btn--block">Сохранить</button>
+            <p class="form-msg" id="adm-form-msg"></p>
+          </form>
+        </div>
+      </div>
+
+      <section class="section" style="padding: 2rem 0 0;">
+        <h2 class="section-title" style="font-size: 1.8rem;">Тренеры</h2>
+        <p class="section-lead" style="margin-bottom: 1.25rem;">Добавляйте новых тренеров и удаляйте неактуальных.</p>
+        <div class="admin-layout">
+          <div class="admin-edit">
+            <h3>Добавить тренера</h3>
+            <form id="adm-trainer-form">
+              <label class="field field--full">
+                <span class="field__label">Имя и фамилия</span>
+                <input type="text" id="adm-trainer-name" required />
+              </label>
+              <label class="field field--full">
+                <span class="field__label">Специализация</span>
+                <input type="text" id="adm-trainer-role" required />
+              </label>
+              <label class="field field--full">
+                <span class="field__label">Описание</span>
+                <textarea id="adm-trainer-bio" rows="4" required></textarea>
+              </label>
+              <button type="submit" class="btn btn--primary btn--block">Добавить тренера</button>
+              <p class="form-msg" id="adm-trainer-msg"></p>
+            </form>
+          </div>
+          <div class="admin-search">
+            <h3 style="margin-top: 0;">Список тренеров</h3>
+            <ul class="admin-results" id="adm-trainer-results"></ul>
+            <p class="form-msg" id="adm-trainer-list-msg"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding: 2rem 0 0;">
+        <h2 class="section-title" style="font-size: 1.8rem;">Фото для раздела «Зоны»</h2>
+        <p class="section-lead" style="margin-bottom: 1.25rem;">Загрузите изображение, чтобы оно появилось в галерее выбранной зоны.</p>
+        <div class="admin-layout">
+          <div class="admin-edit">
+            <h3>Добавить фото</h3>
+            <form id="adm-zone-photo-form">
+              <label class="field field--full">
+                <span class="field__label">Зона</span>
+                <select id="adm-zone-key" required>
+                  <option value="strength">Силовая зона</option>
+                  <option value="boxing">Бокс</option>
+                  <option value="reception">Ресепшен</option>
+                  <option value="group_halls">Групповые залы</option>
+                </select>
+              </label>
+              <label class="field field--full">
+                <span class="field__label">Подпись к фото</span>
+                <input type="text" id="adm-zone-caption" required />
+              </label>
+              <label class="field field--full">
+                <span class="field__label">Файл изображения (PNG, JPG, WEBP, GIF)</span>
+                <input type="file" id="adm-zone-file" accept="image/png,image/jpeg,image/webp,image/gif" required />
+              </label>
+              <button type="submit" class="btn btn--primary btn--block">Загрузить фото</button>
+              <p class="form-msg" id="adm-zone-photo-msg"></p>
+            </form>
+          </div>
+          <div class="admin-search">
+            <h3 style="margin-top: 0;">Загруженные фото зон</h3>
+            <ul class="admin-results" id="adm-zone-results"></ul>
+            <p class="form-msg" id="adm-zone-list-msg"></p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="logo logo--footer" href="index.html"><span class="logo__mark">PRO</span><span class="logo__text">GYM</span></a>
+        <p>© <span id="year"></span> Фитнес-клуб PRO GYM</p>
+      </div>
+      <a class="footer__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth-nav.js" defer></script>
+  <script>
+    var selectedUser = null;
+    var zoneTitles = {
+      strength: "Силовая зона",
+      boxing: "Бокс",
+      reception: "Ресепшен",
+      group_halls: "Групповые залы",
+    };
+
+    function fmtRu(iso) {
+      if (!iso) return "—";
+      var p = iso.split("-");
+      return p[2] + "." + p[1] + "." + p[0];
+    }
+
+    async function checkAdmin() {
+      var r = await fetch("/api/me", { credentials: "same-origin" });
+      var data = await r.json();
+      if (!data.user || data.user.role !== "admin") {
+        document.getElementById("adm-deny").style.display = "block";
+        return false;
+      }
+      document.getElementById("adm-app").style.display = "block";
+      return true;
+    }
+
+    async function runSearch() {
+      var q = document.getElementById("adm-q").value.trim();
+      var msg = document.getElementById("adm-search-msg");
+      var list = document.getElementById("adm-results");
+      msg.textContent = "";
+      list.innerHTML = "";
+      if (q.length < 2) {
+        msg.textContent = "Введите минимум 2 символа";
+        msg.className = "form-msg is-error";
+        return;
+      }
+      var r = await fetch("/api/admin/users?q=" + encodeURIComponent(q), { credentials: "same-origin" });
+      if (r.status === 403 || r.status === 401) {
+        msg.textContent = "Нет прав";
+        msg.className = "form-msg is-error";
+        return;
+      }
+      var data = await r.json();
+      if (!data.users || !data.users.length) {
+        msg.textContent = "Никого не найдено";
+        return;
+      }
+      data.users.forEach(function (u) {
+        var li = document.createElement("li");
+        var b = document.createElement("button");
+        b.type = "button";
+        b.innerHTML =
+          '<span class="r-name">' +
+          u.lastName +
+          " " +
+          u.firstName +
+          "</span>" +
+          '<span class="r-meta">' +
+          u.email +
+          (u.membership ? " · до " + fmtRu(u.membership.subscriptionEnd) : "") +
+          "</span>";
+        b.addEventListener("click", function () {
+          selectUser(u);
+        });
+        li.appendChild(b);
+        list.appendChild(li);
+      });
+    }
+
+    function selectUser(u) {
+      selectedUser = u;
+      var panel = document.getElementById("adm-edit");
+      panel.style.opacity = "1";
+      panel.style.pointerEvents = "";
+      document.getElementById("adm-edit-title").textContent = u.lastName + " " + u.firstName;
+      document.getElementById("adm-edit-meta").textContent = u.email + (u.phone ? " · " + u.phone : "");
+      document.getElementById("adm-user-id").value = u.id;
+      var m = u.membership || {};
+      document.getElementById("adm-plan").value = m.planName || "";
+      document.getElementById("adm-end").value = m.subscriptionEnd || new Date().toISOString().slice(0, 10);
+      document.getElementById("adm-tr").value = m.trainingsRemaining != null ? m.trainingsRemaining : 0;
+      document.getElementById("adm-form-msg").textContent = "";
+    }
+
+    function msgTo(el, text, isError) {
+      el.textContent = text || "";
+      el.className = "form-msg";
+      if (text) {
+        el.classList.add(isError ? "is-error" : "is-success");
+      }
+    }
+
+    async function loadTrainers() {
+      var list = document.getElementById("adm-trainer-results");
+      var msg = document.getElementById("adm-trainer-list-msg");
+      list.innerHTML = "";
+      msgTo(msg, "");
+      var r = await fetch("/api/admin/trainers", { credentials: "same-origin" });
+      var data = await r.json();
+      if (!r.ok) {
+        msgTo(msg, data.error || "Не удалось загрузить тренеров", true);
+        return;
+      }
+      if (!data.trainers || !data.trainers.length) {
+        msgTo(msg, "Тренеров пока нет");
+        return;
+      }
+      data.trainers.forEach(function (t) {
+        var li = document.createElement("li");
+        var wrap = document.createElement("div");
+        wrap.style.padding = "0.75rem 0.5rem";
+        var info = document.createElement("div");
+        info.innerHTML =
+          '<div class="r-name">' +
+          t.name +
+          '</div><div class="r-meta">' +
+          t.role +
+          " · " +
+          t.bio +
+          "</div>";
+        var removeBtn = document.createElement("button");
+        removeBtn.type = "button";
+        removeBtn.className = "btn btn--outline";
+        removeBtn.style.marginTop = "0.65rem";
+        removeBtn.textContent = "Удалить";
+        removeBtn.addEventListener("click", async function () {
+          if (!confirm("Удалить тренера " + t.name + "?")) return;
+          var delRes = await fetch("/api/admin/trainers/" + t.id, { method: "DELETE", credentials: "same-origin" });
+          var delData = await delRes.json();
+          if (!delRes.ok) {
+            msgTo(msg, delData.error || "Не удалось удалить тренера", true);
+            return;
+          }
+          loadTrainers();
+        });
+        wrap.appendChild(info);
+        wrap.appendChild(removeBtn);
+        li.appendChild(wrap);
+        list.appendChild(li);
+      });
+    }
+
+    function readFileAsDataUrl(file) {
+      return new Promise(function (resolve, reject) {
+        var reader = new FileReader();
+        reader.onload = function () {
+          resolve(reader.result);
+        };
+        reader.onerror = function () {
+          reject(new Error("Не удалось прочитать файл"));
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function loadZonePhotos() {
+      var list = document.getElementById("adm-zone-results");
+      var msg = document.getElementById("adm-zone-list-msg");
+      list.innerHTML = "";
+      msgTo(msg, "");
+      var r = await fetch("/api/admin/zones/photos", { credentials: "same-origin" });
+      var data = await r.json();
+      if (!r.ok) {
+        msgTo(msg, data.error || "Не удалось загрузить фото зон", true);
+        return;
+      }
+      var rows = [];
+      (data.zones || []).forEach(function (z) {
+        (z.slides || []).forEach(function (s) {
+          if (s.src) rows.push({ zoneKey: z.key, caption: s.caption, src: s.src });
+        });
+      });
+      if (!rows.length) {
+        msgTo(msg, "Пока нет загруженных фото");
+        return;
+      }
+      rows.forEach(function (row) {
+        var li = document.createElement("li");
+        var wrap = document.createElement("div");
+        wrap.style.padding = "0.75rem 0.5rem";
+        wrap.innerHTML =
+          '<div class="r-name">' +
+          (zoneTitles[row.zoneKey] || row.zoneKey) +
+          '</div><div class="r-meta">' +
+          row.caption +
+          "</div>";
+        li.appendChild(wrap);
+        list.appendChild(li);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", async function () {
+      var ok = await checkAdmin();
+      if (!ok) return;
+
+      document.getElementById("adm-search-btn").addEventListener("click", runSearch);
+      document.getElementById("adm-q").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          runSearch();
+        }
+      });
+
+      document.getElementById("adm-form").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        var msg = document.getElementById("adm-form-msg");
+        msg.textContent = "";
+        msg.className = "form-msg";
+        var id = document.getElementById("adm-user-id").value;
+        if (!id) return;
+        var body = {
+          planName: document.getElementById("adm-plan").value,
+          subscriptionEnd: document.getElementById("adm-end").value,
+          trainingsRemaining: parseInt(document.getElementById("adm-tr").value, 10),
+        };
+        var r = await fetch("/api/admin/users/" + id, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          credentials: "same-origin",
+          body: JSON.stringify(body),
+        });
+        var data = await r.json();
+        if (!r.ok) {
+          msg.textContent = data.error || "Ошибка";
+          msg.classList.add("is-error");
+          return;
+        }
+        msg.textContent = "Сохранено";
+        msg.classList.add("is-success");
+        if (selectedUser) {
+          selectedUser.membership = data.user.membership;
+        }
+      });
+
+      document.getElementById("adm-trainer-form").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        var msg = document.getElementById("adm-trainer-msg");
+        msgTo(msg, "");
+        var body = {
+          name: document.getElementById("adm-trainer-name").value.trim(),
+          role: document.getElementById("adm-trainer-role").value.trim(),
+          bio: document.getElementById("adm-trainer-bio").value.trim(),
+        };
+        var r = await fetch("/api/admin/trainers", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "same-origin",
+          body: JSON.stringify(body),
+        });
+        var data = await r.json();
+        if (!r.ok) {
+          msgTo(msg, data.error || "Ошибка добавления", true);
+          return;
+        }
+        msgTo(msg, "Тренер добавлен");
+        e.target.reset();
+        loadTrainers();
+      });
+
+      document.getElementById("adm-zone-photo-form").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        var msg = document.getElementById("adm-zone-photo-msg");
+        msgTo(msg, "");
+        var fileInput = document.getElementById("adm-zone-file");
+        var file = fileInput.files && fileInput.files[0];
+        if (!file) {
+          msgTo(msg, "Выберите файл", true);
+          return;
+        }
+        var dataUrl;
+        try {
+          dataUrl = await readFileAsDataUrl(file);
+        } catch (err) {
+          msgTo(msg, err.message || "Ошибка чтения файла", true);
+          return;
+        }
+        var body = {
+          zoneKey: document.getElementById("adm-zone-key").value,
+          caption: document.getElementById("adm-zone-caption").value.trim(),
+          dataUrl: dataUrl,
+        };
+        var r = await fetch("/api/admin/zones/photos", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "same-origin",
+          body: JSON.stringify(body),
+        });
+        var data = await r.json();
+        if (!r.ok) {
+          msgTo(msg, data.error || "Ошибка загрузки", true);
+          return;
+        }
+        msgTo(msg, "Фото загружено");
+        e.target.reset();
+        loadZonePhotos();
+      });
+
+      loadTrainers();
+      loadZonePhotos();
+    });
+  </script>
+</body>
+</html>

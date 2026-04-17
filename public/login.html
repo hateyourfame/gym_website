@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вход — PRO GYM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header" id="top">
+    <div class="header__inner container">
+      <a class="logo" href="index.html" aria-label="PRO GYM — на главную">
+        <span class="logo__mark">PRO</span><span class="logo__text">GYM</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="site-nav">
+        <div class="nav__center">
+          <ul class="nav__list">
+            <li><a href="about.html">О клубе</a></li>
+            <li><a href="programs.html">Направления</a></li>
+            <li><a href="schedule.html">Расписание</a></li>
+            <li><a href="tariffs.html">Тарифы</a></li>
+            <li><a href="trainers.html">Тренеры</a></li>
+            <li><a href="zones.html">Зоны</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="nav__end">
+          <div id="auth-slot" class="nav__auth"></div>
+          <a class="nav__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container auth-page">
+    <h1 class="section-title">Вход</h1>
+    <p class="section-lead" style="text-align: center; margin-bottom: 2rem;">Войдите в личный кабинет, чтобы видеть абонемент и остаток тренировок.</p>
+    <form class="lead-form auth-form" id="login-form" style="grid-template-columns: 1fr;">
+      <label class="field field--full">
+        <span class="field__label">Email</span>
+        <input type="email" name="email" required autocomplete="email" />
+      </label>
+      <label class="field field--full">
+        <span class="field__label">Пароль</span>
+        <input type="password" name="password" required autocomplete="current-password" />
+      </label>
+      <button class="btn btn--primary btn--lg btn--block field--full" type="submit">Войти</button>
+      <p class="form-msg field--full" id="login-msg" role="status"></p>
+      <p class="field--full" style="text-align: center; margin: 0;">
+        <a href="register.html" class="link-more">Нет аккаунта? Регистрация</a>
+      </p>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="logo logo--footer" href="index.html"><span class="logo__mark">PRO</span><span class="logo__text">GYM</span></a>
+        <p>© <span id="year"></span> Фитнес-клуб PRO GYM</p>
+      </div>
+      <a class="footer__phone" href="tel:+79939167575">+7 (993) 916-75-75</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth-nav.js" defer></script>
+  <script>
+    document.getElementById("login-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      var msg = document.getElementById("login-msg");
+      msg.textContent = "";
+      msg.className = "form-msg field--full";
+      var fd = new FormData(e.target);
+      try {
+        var r = await fetch("/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "same-origin",
+          body: JSON.stringify({ email: fd.get("email"), password: fd.get("password") }),
+        });
+        var data = await r.json();
+        if (!r.ok) {
+          msg.textContent = data.error || "Ошибка входа";
+          msg.classList.add("is-error");
+          return;
+        }
+        if (data.user && data.user.role === "admin") {
+          window.location.href = "admin.html";
+        } else {
+          window.location.href = "dashboard.html";
+        }
+      } catch (err) {
+        msg.textContent = "Сервер недоступен. Запустите: npm start";
+        msg.classList.add("is-error");
+      }
+    });
+  </script>
+</body>
+</html>
